@@ -193,11 +193,15 @@
   <div class="wrap">
     <h2 class="title">Get exclusive material</h2>
     <p class="lead" style="margin:0 auto">Subscribe for free material, promotions and the latest updates.</p>
-    <!-- TODO: cambia el action por tu endpoint de Formspree / MailerLite -->
-    <form action="#" method="post">
+    <form data-w3f data-ok="You're in! Watch your inbox for free material." action="https://api.web3forms.com/submit" method="post">
+      <input type="hidden" name="access_key" value="21eb838a-8e5d-4255-a8df-092b2c4d3334">
+      <input type="hidden" name="subject" value="Nueva suscripción desde el home">
+      <input type="hidden" name="from_name" value="Your Mexican Friend web">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
       <label for="email" class="vh">Email address</label>
       <input id="email" type="email" name="email" placeholder="you@email.com" required>
       <button class="btn" type="submit">Subscribe</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -215,5 +219,6 @@
   </div>
 </footer>
 
+<script src="js/forms.js"></script>
 </body>
 </html>

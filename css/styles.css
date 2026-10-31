@@ -205,3 +205,10 @@ footer a:hover{color:var(--cyan)}
   .contact{grid-template-columns:1fr;padding:38px 24px}
   .page-head{padding:64px 0 50px}
 }
+
+/* estado de formularios */
+.form-status{font-weight:600;font-size:.95rem;min-height:1.4em;width:100%}
+.form-status.ok{color:var(--cyan)}
+.form-status.err{color:#ffb3d9}
+.hp{display:none}
+button[disabled]{opacity:.6;cursor:wait}

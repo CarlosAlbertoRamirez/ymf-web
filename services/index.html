@@ -132,12 +132,16 @@
         <h2 class="title">Let's design your program</h2>
         <p class="lead">Schedule a call with us and we'll build the best package for your organization.</p>
       </div>
-      <!-- TODO: poner el correo/endpoint real en action -->
-      <form action="#" method="post">
+      <form data-w3f data-ok="Thanks! We got your message and will reply soon." action="https://api.web3forms.com/submit" method="post">
+        <input type="hidden" name="access_key" value="21eb838a-8e5d-4255-a8df-092b2c4d3334">
+        <input type="hidden" name="subject" value="Nuevo contacto desde la página de Services">
+        <input type="hidden" name="from_name" value="Your Mexican Friend web">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
         <div><label for="name">Name</label><input id="name" name="name" required></div>
         <div><label for="cemail">Email</label><input id="cemail" type="email" name="email" required></div>
         <div><label for="msg">Message</label><textarea id="msg" name="message" placeholder="Tell us about your team and what you need"></textarea></div>
         <button class="btn" type="submit">Contact us</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
@@ -156,5 +160,6 @@
   </div>
 </footer>
 
+<script src="../js/forms.js"></script>
 </body>
 </html>
