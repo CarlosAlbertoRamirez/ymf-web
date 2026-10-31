@@ -212,3 +212,73 @@ footer a:hover{color:var(--cyan)}
 .form-status.err{color:#ffb3d9}
 .hp{display:none}
 button[disabled]{opacity:.6;cursor:wait}
+
+/* ===== EQUIPO ===== */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.person{background:var(--deep);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.person img{width:100%;height:auto}
+.person div{padding:28px}
+.person h3{font-weight:800;font-size:1.6rem;color:var(--pink)}
+.person small{display:block;color:var(--cyan);font-weight:600;margin-bottom:14px}
+.person p{color:var(--muted);margin-bottom:12px}
+
+/* ===== OPINIONES ===== */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.review{background:var(--deep);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.review .stars{color:#FFD23F;letter-spacing:2px}
+.review blockquote{border:0;padding:0;font:400 1rem/1.65 var(--font);color:var(--ink)}
+.review cite{font-style:normal;font-weight:800;color:var(--pink);margin-top:auto}
+
+/* ===== LISTAS DE LINKS (tests / ejercicios) ===== */
+.levels-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px}
+.lvl{display:block;text-decoration:none;border:1px solid var(--cyan);border-radius:18px;padding:26px;background:var(--deep);transition:transform .2s,box-shadow .2s}
+.lvl:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--pink)}
+.lvl b{display:block;font-weight:800;font-size:2.2rem;line-height:1;color:var(--pink);margin-bottom:8px}
+.lvl span{color:var(--muted)}
+.ex-group{margin-top:48px}
+.ex-group h3{font-weight:800;font-size:1.4rem;display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+.ex-group h3 span{font-weight:400;font-size:.9rem;color:var(--muted)}
+.ex-list{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.ex-list a{text-decoration:none;padding:16px 18px;border-radius:14px;background:var(--deep);border:1px solid var(--line);transition:border-color .2s}
+.ex-list a:hover{border-color:var(--cyan)}
+.ex-list strong{display:block;font-weight:600}
+.ex-list small{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chips a{text-decoration:none;font-weight:600;font-size:.9rem;padding:8px 14px;border-radius:999px;border:1px solid var(--cyan);color:var(--cyan)}
+.chips a:hover{background:var(--cyan);color:var(--night)}
+
+/* ===== REDES ===== */
+.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.social{background:var(--deep);border:1px solid var(--line);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:14px}
+.social h3{font-weight:800;font-size:1.3rem}
+.social p{color:var(--muted)}
+.social .embed{position:relative;width:100%;border-radius:14px;overflow:hidden;background:var(--night)}
+.social .embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.embed--yt{aspect-ratio:16/9}
+.embed--tt{aspect-ratio:9/16;max-height:620px}
+
+/* ===== BLOG ===== */
+.post-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+.post-card{text-decoration:none;background:var(--deep);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s}
+.post-card:hover{border-color:var(--cyan)}
+.post-card img{width:100%;height:auto}
+.post-card div{padding:20px 22px 24px}
+.post-card time{color:var(--cyan);font-size:.85rem;font-weight:600}
+.post-card h3{font-weight:600;font-size:1.1rem;line-height:1.35;margin-top:6px}
+.post-card:hover h3{color:var(--pink)}
+.post{max-width:72ch;margin:0 auto}
+.post-meta{color:var(--cyan);font-weight:600;margin-top:14px}
+.post img{width:100%;height:auto;border-radius:18px;margin:10px 0 30px}
+.post p{color:#e4dcff;margin-bottom:18px;font-size:1.05rem;line-height:1.8}
+.post strong{color:var(--ink)}
+.post blockquote{border-left:5px solid var(--pink);padding:4px 0 4px 20px;margin:26px 0;font:600 1.15rem/1.5 var(--font)}
+.post blockquote p{color:var(--ink);margin:0}
+.post .lang{display:inline-block;margin:30px 0 14px;padding:6px 14px;border-radius:999px;background:var(--panel);color:var(--cyan);font-weight:700;font-size:.85rem}
+.post-nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:50px;padding-top:28px;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .people,.reviews,.levels-grid,.ex-list,.socials,.post-cards{grid-template-columns:1fr}
+}
+@media (min-width:600px) and (max-width:860px){
+  .levels-grid,.ex-list,.post-cards{grid-template-columns:1fr 1fr}
+}
