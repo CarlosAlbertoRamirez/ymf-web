@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Mexican Friend</title>
+<meta name="description" content="Mexican Spanish training for individuals and teams. Free app, free level test, podcast and more.">
+<meta property="og:title" content="Your Mexican Friend">
+<meta property="og:description" content="Learning while having fun">
+<meta property="og:url" content="https://yourmexicanfriend.com/">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#14033A;      /* fondo del logo */
+  --deep:#1E0A52;
+  --panel:#29106B;
+  --pink:#FF2E9A;
+  --cyan:#3DE4FF;
+  --ink:#FFFFFF;
+  --muted:#C4B8EC;
+  --line:rgba(196,184,236,.2);
+  --wrap:1120px;
+  --font:"Poppins",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--ink);font:400 1rem/1.65 var(--font);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px;border-radius:6px}
+
+/* ===== HEADER (barra con esquinas redondeadas, como Itera) ===== */
+.top{position:sticky;top:0;z-index:50;padding:0 16px}
+.bar{max-width:1400px;margin:0 auto;background:var(--night);border:1px solid var(--line);border-top:none;
+  border-radius:0 0 22px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 26px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.bar__logo img{height:54px;width:auto}
+.menu{display:flex;align-items:center;gap:28px;list-style:none}
+.menu a{text-decoration:none;font-weight:600;font-size:.88rem;color:var(--muted)}
+.menu a:hover{color:var(--ink)}
+.menu .cta{color:var(--pink);border:2px solid var(--pink);padding:6px 16px;border-radius:999px}
+.menu .cta:hover{background:var(--pink);color:#fff}
+.burger{display:none;background:none;border:0;color:var(--ink);font-size:1.6rem;cursor:pointer}
+
+/* ===== HERO con VIDEO ===== */
+.hero{position:relative;margin-top:28px;height:min(72vh,620px);min-height:420px;overflow:hidden;
+  background:radial-gradient(ellipse at 70% 40%,#5b1b9e 0%,var(--night) 70%)}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(20,3,58,.15) 0%,rgba(20,3,58,.55) 45%,rgba(20,3,58,.85) 100%)}
+.hero__logo{position:absolute;z-index:2;left:clamp(12px,3vw,40px);bottom:clamp(10px,3vw,30px);width:clamp(120px,16vw,220px);height:auto}
+.hero__text{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;
+  max-width:var(--wrap);margin:0 auto;padding:0 20px 0 max(20px,38%)}
+.hero h1{font-weight:300;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.1;margin-bottom:26px}
+.hero h1 strong{display:block;font-weight:800;color:var(--pink);text-shadow:3px 3px 0 var(--cyan)}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 .95rem/1 var(--font);text-decoration:none;
+  padding:13px 22px;border-radius:999px;border:2px solid var(--cyan);background:var(--pink);color:#fff;width:max-content;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn--line{background:transparent;border-color:var(--pink);color:var(--ink)}
+.btn--line:hover{background:var(--pink)}
+
+/* ===== INTRO + SERVICIOS ===== */
+.intro{padding:110px 0 40px;text-align:center}
+.intro p{color:var(--muted);max-width:60ch;margin:0 auto 30px}
+.intro h2{font-weight:800;font-size:1.5rem;color:var(--cyan);margin-bottom:34px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:900px;margin:0 auto;text-align:left}
+.card{display:block;text-decoration:none;border:1px solid var(--cyan);border-radius:16px;padding:26px 24px 30px;
+  background:linear-gradient(135deg,var(--deep) 55%,rgba(61,228,255,.18) 100%);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-4px);box-shadow:6px 6px 0 var(--pink)}
+.card span{display:block;font-weight:300;font-size:1.1rem;color:var(--muted)}
+.card strong{display:block;font-weight:800;font-size:1.25rem;color:var(--pink);margin-bottom:12px}
+.card p{font-size:.85rem;color:var(--muted)}
+
+/* ===== BLOQUES GENERALES ===== */
+section{padding:90px 0}
+h2.title{font-weight:800;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.2;margin-bottom:16px}
+h2.title em{font-style:normal;font-weight:300;display:block;color:var(--muted);font-size:.7em}
+.lead{color:var(--muted);max-width:60ch}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.split img{border-radius:20px;border:1px solid var(--line);width:100%;height:auto}
+.split .btn{margin-top:26px}
+.alt{background:var(--deep)}
+
+/* ===== APP GRATIS ===== */
+.app{border-radius:26px;padding:60px 48px;background:linear-gradient(120deg,var(--pink),#8e1fa8 60%,var(--panel));
+  display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;box-shadow:8px 8px 0 var(--cyan)}
+.app h2{font-weight:800;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1}
+.app p{color:#ffe0f1;margin:12px 0 0}
+.app .btn{background:var(--night);border-color:var(--night);justify-self:end}
+
+/* ===== MEDIOS ===== */
+.press{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.press a{text-decoration:none;border-radius:16px;overflow:hidden;background:var(--deep);border:1px solid var(--line);transition:border-color .2s}
+.press a:hover{border-color:var(--cyan)}
+.press img{width:100%;height:auto}
+.press div{padding:18px 20px 22px}
+.press small{color:var(--cyan);font-weight:600}
+.press p{font-weight:600;line-height:1.4;margin-top:4px}
+
+/* ===== BLOG ===== */
+.posts{list-style:none;margin-top:36px}
+.posts li{border-top:1px solid var(--line)}
+.posts li:last-child{border-bottom:1px solid var(--line)}
+.posts a{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:22px 0;text-decoration:none;align-items:baseline}
+.posts time{color:var(--muted);font-size:.88rem}
+.posts h3{font-weight:600;font-size:1.1rem;line-height:1.4}
+.posts a:hover h3{color:var(--pink)}
+
+/* ===== TEST ===== */
+.levels{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 4px}
+.levels span{font-weight:800;font-size:.85rem;padding:7px 11px;border-radius:8px;border:1px solid var(--cyan);color:var(--cyan)}
+
+/* ===== FRASE ===== */
+.quote{text-align:center;padding:100px 20px}
+.quote p{font-weight:300;font-size:clamp(1.5rem,3.6vw,2.4rem);line-height:1.3;max-width:24ch;margin:0 auto}
+.quote p b{font-weight:800;color:var(--pink)}
+
+/* ===== TRES LINKS (historias, podcast, redes) ===== */
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.trio a{text-decoration:none;border-radius:18px;overflow:hidden;background:var(--deep);border:1px solid var(--line);transition:border-color .2s}
+.trio a:hover{border-color:var(--cyan)}
+.trio img{width:100%;height:auto}
+.trio div{padding:18px 22px 22px}
+.trio h3{font-weight:800;font-size:1.3rem}
+.trio p{color:var(--muted);font-size:.9rem}
+.trio a:hover h3{color:var(--pink)}
+
+/* ===== FAQ ===== */
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-of-type{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 40px 18px 0;font-weight:600;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:10px;font-size:1.7rem;color:var(--cyan);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding:0 0 20px;max-width:65ch}
+
+/* ===== SUSCRIPCIÓN + FOOTER ===== */
+.sub{text-align:center;border-top:1px solid var(--line)}
+.sub form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.sub input{width:min(340px,100%);font:400 1rem var(--font);padding:13px 20px;border-radius:999px;border:1px solid var(--cyan);background:var(--deep);color:var(--ink)}
+.sub input::placeholder{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:34px 0;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer img{height:40px}
+footer nav{display:flex;gap:20px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--cyan)}
+.vh{position:absolute;left:-9999px}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:860px){
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;align-items:flex-start;gap:18px;
+    background:var(--night);border:1px solid var(--line);border-radius:0 0 20px 20px;padding:22px 26px}
+  .menu.open{display:flex}
+  .bar__logo img{height:44px}
+  .hero__text{padding:0 20px}
+  .hero::after{background:linear-gradient(0deg,rgba(20,3,58,.9) 0%,rgba(20,3,58,.35) 100%)}
+  .cards,.split,.press,.trio,.app{grid-template-columns:1fr}
+  .app{padding:40px 26px}
+  .app .btn{justify-self:start}
+  .posts a{grid-template-columns:1fr;gap:4px}
+  section{padding:64px 0}
+  .intro{padding:70px 0 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .card,.btn{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top">
+  <div class="bar">
+    <a class="bar__logo" href="/"><img src="img/logo.png" alt="Your Mexican Friend"></a>
+    <button class="burger" aria-label="Open menu" aria-expanded="false" onclick="const m=document.querySelector('.menu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'))">☰</button>
+    <ul class="menu">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#free">Free app</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="https://yourmexicanfriend.com/us-2/">Us</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="cta" href="https://yourmexicanfriend.com/services/">Contact us</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO CON VIDEO -->
+<section class="hero" style="padding:0">
+  <!-- Pon tu video en video/hero.mp4 (y opcional video/hero.webm). Mientras no exista, se ve el fondo morado. -->
+  <video autoplay muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true">
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <img class="hero__logo" src="img/logo-glow.png" alt="" aria-hidden="true">
+  <div class="hero__text">
+    <h1>Learn the Spanish of Mexico <strong>with a Mexican friend</strong></h1>
+    <a class="btn" href="#services">› Learn more</a>
+  </div>
+</section>
+
+<!-- INTRO + SERVICIOS -->
+<div class="wrap intro" id="services">
+  <p>Mexican Spanish training for people and teams — from A1 to C1, with real culture, real expressions and real Mexicans.</p>
+  <h2>Explore our services</h2>
+  <div class="cards">
+    <a class="card" href="https://yourmexicanfriend.com/teaching-style/">
+      <span>Strategic</span><strong>Language Services</strong>
+      <p>Mexican Spanish training to grow your team in the Mexican market.</p>
+    </a>
+    <a class="card" href="https://app.yourmexicanfriend.com/">
+      <span>Learn Spanish</span><strong>For Free</strong>
+      <p>Interactive practice in Mexican Spanish, right in your browser.</p>
+    </a>
+    <a class="card" href="https://yourmexicanfriend.com/measure-your-level-tests-de-espanol-por-nivel-your-mexican-friend/">
+      <span>Free diagnostic</span><strong>Test A0–C1</strong>
+      <p>Find out your level in a few minutes, then start where you belong.</p>
+    </a>
+  </div>
+</div>
+
+<!-- POR QUÉ -->
+<section>
+  <div class="wrap split">
+    <div>
+      <h2 class="title"><em>Why you shouldn't</em>miss this opportunity</h2>
+      <p class="lead">Embrace our Mexican Spanish training to unlock your team's potential and move your business forward in the global marketplace. It's your stepping stone to cultural fluency and market expansion. Choose growth, choose connection, choose success.</p>
+      <a class="btn btn--line" href="https://yourmexicanfriend.com/services/">Our services</a>
+    </div>
+    <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/online-5059833_1920.png?w=1024" alt="Online Spanish class">
+  </div>
+</section>
+
+<!-- APP GRATIS -->
+<section id="free" style="padding-top:0">
+  <div class="wrap">
+    <div class="app">
+      <div>
+        <h2>Learn Spanish.<br>For free.</h2>
+        <p>By Your Mexican Friend 🇲🇽</p>
+      </div>
+      <a class="btn" href="https://app.yourmexicanfriend.com/">Open the app</a>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIOS -->
+<section class="alt">
+  <div class="wrap">
+    <h2 class="title"><em>Media coverage</em>& interviews</h2>
+    <div class="press">
+      <a href="https://enfoquenoticias.com.mx/mexico-la-mejor-opcion-de-extranjeros-para-aprender-espanol/" target="_blank" rel="noopener">
+        <img src="https://yourmexicanfriend.com/wp-content/uploads/2024/03/laguageq.jpeg?w=600" alt="">
+        <div><small>Enfoque Noticias</small><p>Mexico, the best option for foreigners to learn Spanish</p></div>
+      </a>
+      <a href="https://www.infobae.com/mexico/2024/04/13/estudio-revela-que-extranjeros-aprenden-espanol-para-ligarse-a-mexicanos-es-lo-bueno-de-la-gentrificacion/" target="_blank" rel="noopener">
+        <img src="https://yourmexicanfriend.com/wp-content/uploads/2024/04/beso-1.jpg?w=600" alt="">
+        <div><small>Infobae</small><p>Study reveals that foreigners learn Spanish to connect with Mexicans</p></div>
+      </a>
+      <a href="https://www.elfinanciero.com.mx/monterrey/2024/02/15/impulsa-el-nearshoring-a-que-el-idioma-espanol-sea-poderoso-entre-extranjeros-que-llegan/" target="_blank" rel="noopener">
+        <img src="https://yourmexicanfriend.com/wp-content/uploads/2024/03/z3itmeysyfhpdhsgnpvn4o47cm.jpg?w=600" alt="">
+        <div><small>El Financiero</small><p>Nearshoring boosts the Spanish language's power among arriving foreigners</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="wrap">
+    <h2 class="title">Blog</h2>
+    <ul class="posts">
+      <li><a href="https://yourmexicanfriend.com/2024/04/20/espanol-mexicano-en-el-negocio-mas-que-un-idioma-una-estrategia-empresaria/">
+        <time datetime="2024-04-20">Apr 20, 2024</time>
+        <h3>Español mexicano en el negocio: más que un idioma, una estrategia empresarial</h3></a></li>
+      <li><a href="https://yourmexicanfriend.com/2022/06/25/he-olvidado-todo-lo-aprendido-have-forgotten-everything-i-learned/">
+        <time datetime="2022-06-25">Jun 25, 2022</time>
+        <h3>He olvidado todo lo aprendido / I have forgotten everything I learned</h3></a></li>
+      <li><a href="https://yourmexicanfriend.com/2022/06/13/donde-empezar-where-to-start/">
+        <time datetime="2022-06-13">Jun 13, 2022</time>
+        <h3>¿Dónde empezar? / Where to start?</h3></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- TEST -->
+<section class="alt">
+  <div class="wrap split">
+    <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/photo-1516534775068-ba3e7458af70.jpg?w=800" alt="">
+    <div>
+      <h2 class="title"><em>Free diagnostic test</em>A0 – C1</h2>
+      <div class="levels" aria-hidden="true"><span>A0</span><span>A1</span><span>A2</span><span>B1</span><span>B2</span><span>C1</span></div>
+      <a class="btn" href="https://yourmexicanfriend.com/measure-your-level-tests-de-espanol-por-nivel-your-mexican-friend/">Take the test</a>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section>
+  <div class="wrap split">
+    <div>
+      <h2 class="title">The crew</h2>
+      <p class="lead">Mexicans from Mexico City teaching Spanish the way we'd teach a friend: patiently, honestly and with lots of real-life examples.</p>
+      <a class="btn btn--line" href="https://yourmexicanfriend.com/us-2/">More about us</a>
+    </div>
+    <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/image.jpg?w=1024" alt="The Your Mexican Friend team">
+  </div>
+</section>
+
+<!-- FRASE -->
+<div class="quote alt">
+  <p>“To have another language is to possess <b>a second soul.</b>”</p>
+</div>
+
+<!-- HISTORIAS / PODCAST / REDES -->
+<section>
+  <div class="wrap trio">
+    <a href="https://yourmexicanfriend.com/success-stories/">
+      <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/pexels-olia-danilevich-8127301.jpg?w=800" alt="">
+      <div><h3>Success stories</h3><p>Students who made it.</p></div>
+    </a>
+    <a href="#">
+      <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/social-3408791_1920.jpg?w=800" alt="">
+      <div><h3>El podcast</h3><p>Natural Mexican Spanish to listen anywhere.</p></div>
+    </a>
+    <a href="https://yourmexicanfriend.com/social-networking/">
+      <img src="https://yourmexicanfriend.com/wp-content/uploads/2022/06/357c359c-9c71-4147-8de0-40d65f0f27b0-1.jpg?w=800" alt="">
+      <div><h3>Social networking</h3><p>Follow us and practice every day.</p></div>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq alt">
+  <div class="wrap">
+    <h2 class="title"><em>Do you still have doubts?</em>Frequently asked questions</h2>
+    <details><summary>Do you teach Spain Spanish too?</summary><p>No. We teach Mexican Spanish only — the vocabulary, pronunciation and expressions used in Mexico.</p></details>
+    <details><summary>What level do I need to start?</summary><p>None. We teach from A1 to C1. Not sure where you are? Take the free diagnostic test.</p></details>
+    <details><summary>Are classes online?</summary><p>Yes, all classes are online, so you can join from anywhere.</p></details>
+    <details><summary>Can you train my whole team?</summary><p>Yes. We design group or individual programs for companies working with Mexico.</p></details>
+    <p style="margin-top:26px"><a class="btn btn--line" href="https://yourmexicanfriend.com/fqs/">See all questions</a></p>
+  </div>
+</section>
+
+<!-- SUSCRIPCIÓN -->
+<section class="sub">
+  <div class="wrap">
+    <h2 class="title">Get exclusive material</h2>
+    <p class="lead" style="margin:0 auto">Subscribe for free material, promotions and the latest updates.</p>
+    <!-- TODO: cambia el action por tu endpoint de Formspree / MailerLite -->
+    <form action="#" method="post">
+      <label for="email" class="vh">Email address</label>
+      <input id="email" type="email" name="email" placeholder="you@email.com" required>
+      <button class="btn" type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="Your Mexican Friend">
+    <nav aria-label="Footer">
+      <a href="https://yourmexicanfriend.com/services/">Services</a>
+      <a href="https://app.yourmexicanfriend.com/">Free app</a>
+      <a href="https://yourmexicanfriend.com/fqs/">FAQ</a>
+      <a href="https://yourmexicanfriend.com/us-2/">Us</a>
+    </nav>
+    <span>© 2026 Your Mexican Friend</span>
+  </div>
+</footer>
+
+</body>
+</html>
