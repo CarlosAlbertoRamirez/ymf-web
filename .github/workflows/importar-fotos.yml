@@ -1,0 +1,45 @@
+name: Importar fotos de WordPress
+on:
+  push:
+    paths: ['.github/wp-images.txt', '.github/workflows/importar-fotos.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Descargar fotos
+        run: |
+          set -e
+          while read -r url; do
+            [ -z "$url" ] && continue
+            rel="${url#https://yourmexicanfriend.com/wp-content/uploads/}"
+            mkdir -p "img/wp/$(dirname "$rel")"
+            curl -fsSL -A "Mozilla/5.0" "$url?w=1400" -o "img/wp/$rel"
+            echo "ok $rel $(stat -c%s "img/wp/$rel")"
+          done < .github/wp-images.txt
+      - name: Cambiar links a las fotos locales
+        run: |
+          python3 - <<'PY'
+          import os, re
+          for root, dirs, files in os.walk('.'):
+              if '.git' in root: continue
+              for f in files:
+                  if not f.endswith('.html'): continue
+                  p = os.path.join(root, f)
+                  depth = os.path.relpath(p, '.').count(os.sep)
+                  pre = '../' * depth
+                  h = open(p, encoding='utf-8').read()
+                  n = re.sub(r'https://yourmexicanfriend\.com/wp-content/uploads/([^"?\s)]+)(\?[^"\s)]*)?', lambda m: pre + 'img/wp/' + m.group(1), h)
+                  if n != h:
+                      open(p, 'w', encoding='utf-8').write(n); print('updated', p)
+          PY
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Importa fotos de WordPress al repo"
+          git push
